@@ -1,6 +1,6 @@
 [project]
 name = "dataquantum-yaml-reader"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python package for reading YAML files."
 authors = [
     {name = "jcarlossc",email = "jcarlossc1977@gmail.com"}
