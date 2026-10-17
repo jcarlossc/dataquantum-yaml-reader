@@ -13,4 +13,3 @@ def get_reader_yaml(config_path: Path) -> dict[str, Any]:
             configs[file.stem] = yaml.safe_load(f)
 
     return configs
-
