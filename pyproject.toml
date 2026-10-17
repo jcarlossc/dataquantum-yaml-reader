@@ -28,3 +28,14 @@ dev = [
     "taskipy (>=1.14.1,<2.0.0)",
     "pre-commit (>=4.7.0,<5.0.0)"
 ]
+
+[tool.taskipy.tasks]
+pytest = "poetry run pytest ."
+covhtml = "poetry run pytest --cov=dataquantum_reader_yaml --cov-report=html"
+covcmd = "poetry run pytest --cov=dataquantum_reader_yaml --cov-report=term-missing"
+format = "poetry run ruff format ."
+lint = "poetry run ruff check ."
+mypy = "poetry run mypy ."
+check = "poetry run ruff format --check ."
+precommit = "poetry run pre-commit run --all-files"
+fix = "poetry run ruff check . --fix"
