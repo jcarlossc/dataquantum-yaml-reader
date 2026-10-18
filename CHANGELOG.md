@@ -4,6 +4,14 @@ Todas as alterações relevantes deste projeto serão documentadas neste arquivo
 
 Este projeto segue as convenções do [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e utiliza [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [0.3.0](https://github.com/jcarlossc/dataquantum-yaml-reader/compare/v0.2.0...v0.3.0) (2026-10-18)
+
+
+### Features
+
+* enhanced reader_yaml function ([4ad0626](https://github.com/jcarlossc/dataquantum-yaml-reader/commit/4ad0626b37731b172d094d97c8b8846b65a5ab32))
+* enhanced reader_yaml function ([ac2d741](https://github.com/jcarlossc/dataquantum-yaml-reader/commit/ac2d741f1759a22a07e818bcc4b5b034b18b6384))
+
 ## [0.2.0](https://github.com/jcarlossc/dataquantum-yaml-reader/compare/v0.1.0...v0.2.0) (2026-10-17)
 
 
