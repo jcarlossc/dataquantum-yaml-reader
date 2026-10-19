@@ -1,19 +1,29 @@
+
 [project]
 name = "dataquantum-yaml-reader"
 version = "0.3.0"
-description = "Python package for reading YAML files."
+description = "A Python package for reading YAML configuration files."
 authors = [
-    {name = "jcarlossc",email = "jcarlossc1977@gmail.com"}
+    { name = "jcarlossc", email = "jcarlossc1977@gmail.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.11,<4.0"
+license = "MIT"
+keywords = ["yaml", "configuration", "reader", "dataquantum"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent"
+]
 dependencies = [
-    "pyyaml (>=6.0.3,<7.0.0)",
-    "types-pyyaml (>=6.0.12.20260906,<7.0.0.0)"
+    "pyyaml (>=6.0.3,<7.0.0)"
 ]
 
 [tool.poetry]
-packages = [{include = "dataquantum_yaml_reader", from = "src"}]
+packages = [
+    { include = "dataquantum_yaml_reader", from = "src" }
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -21,6 +31,7 @@ build-backend = "poetry.core.masonry.api"
 
 [dependency-groups]
 dev = [
+    "types-pyyaml (>=6.0.12.20260906,<7.0.0.0)",
     "mypy (>=2.4.0,<3.0.0)",
     "ruff (>=0.17.1,<0.18.0)",
     "pytest (>=9.1.1,<10.0.0)",
@@ -30,12 +41,20 @@ dev = [
 ]
 
 [tool.taskipy.tasks]
-pytest = "poetry run pytest ."
-covhtml = "poetry run pytest --cov=dataquantum_reader_yaml --cov-report=html"
-covcmd = "poetry run pytest --cov=dataquantum_reader_yaml --cov-report=term-missing"
+pytest = "poetry run pytest"
+covhtml = "poetry run pytest --cov=dataquantum_yaml_reader --cov-report=html"
+covcmd = "poetry run pytest --cov=dataquantum_yaml_reader --cov-report=term-missing"
 format = "poetry run ruff format ."
 lint = "poetry run ruff check ."
-mypy = "poetry run mypy ."
-check = "poetry run ruff format --check ."
+mypy = "poetry run mypy src"
+check = "poetry run ruff check . && poetry run ruff format --check ."
 precommit = "poetry run pre-commit run --all-files"
 fix = "poetry run ruff check . --fix"
+release-check = "poetry run ruff check . && poetry run ruff format --check . && poetry run mypy src && poetry run pytest --cov=dataquantum_yaml_reader --cov-report=term-missing --cov-fail-under=90 && poetry build"
+
+[tool.coverage.run]
+source = ["dataquantum_yaml_reader"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
